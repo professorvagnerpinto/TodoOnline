@@ -15,13 +15,15 @@ export default class Item extends Component{
     render(){
         return(
            <View style={styles.area}>
-               <TouchableHighlight style={[styles.marcarArea, this.state.done]} onPress={this.marcar}>
-                   <View>
-
-                   </View>
-               </TouchableHighlight>
-               <Text>{this.props.data.item}</Text>
-               <Button style={styles.botao} title="X" onPress={this.excluir} />
+               <View style={styles.viewInterna1}>
+                   <TouchableHighlight style={[styles.marcarArea, this.state.done]} onPress={this.marcar}>
+                       <View/>
+                   </TouchableHighlight>
+                   <Text style={styles.texto}>{this.props.data.item}</Text>
+               </View>
+               <View style={styles.viewInterna2}>
+                   <Button style={styles.botao} title="X" onPress={this.excluir} />
+               </View>
            </View>
         );
     }
@@ -80,6 +82,15 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor:'#CCCCCC',
         flex:1,
+        flexDirection:'row'
+    },
+    viewInterna1:{
+        flex:5,
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    viewInterna2:{
+        flex:1,
         flexDirection:'row',
         alignItems:'center'
     },
@@ -97,7 +108,9 @@ const styles = StyleSheet.create({
     },
     botao:{
         width:40,
-        height:40,
-        marginLeft:10
+        height:40
+    },
+    texto:{
+        fontSize:16
     }
 });
